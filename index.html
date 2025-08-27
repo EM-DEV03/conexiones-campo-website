@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Conexiones C@mpo - Internet y TV de Alta Velocidad</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+</head>
+
+<body id="inicio">
+
+  <!-- ===== PROMO BANNER ===== -->
+  <div class="promo-banner">
+    <div class="container position-relative">
+      <strong>🎉 ¡OFERTA ESPECIAL DE FIN DE AÑO!</strong>
+      <span class="mx-2">Instalación GRATIS + 50% OFF primer mes</span>
+      <div class="countdown-timer">
+        <div class="countdown-item">
+          <div id="days">00</div>
+          <small>Días</small>
+        </div>
+        <div class="countdown-item">
+          <div id="hours">00</div>
+          <small>Hrs</small>
+        </div>
+        <div class="countdown-item">
+          <div id="minutes">00</div>
+          <small>Min</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#inicio">
+        <i class="bi bi-router"></i> Conexiones C@mpo
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="mainNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#noticias">Noticias</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cobertura">Cobertura</a></li>
+          <li class="nav-item"><a class="nav-link" href="#equipo">Equipo</a></li>
+          <li class="nav-item"><a class="btn btn-primary ms-lg-3" href="#contacto">Contratar</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="py-5 hero-section">
+    <div class="container hero-content">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="display-4 fw-bold mb-3">Internet Ultra Rápido en el Campo</h1>
+          <p class="lead text-muted mb-4">
+            Conectividad de alta velocidad, TV de calidad premium y soporte técnico especializado para zonas rurales.
+          </p>
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <span class="speed-badge"><i class="bi bi-speedometer2"></i> Hasta 100 Mbps</span>
+            <span class="speed-badge"><i class="bi bi-tv"></i> +200 Canales HD</span>
+            <span class="speed-badge"><i class="bi bi-headset"></i> Soporte 24/7</span>
+          </div>
+          <div class="d-flex gap-3">
+            <a class="btn btn-primary btn-lg" href="#servicios">
+              <i class="bi bi-wifi me-2"></i> Ver Planes
+            </a>
+            <a class="btn btn-outline-primary btn-lg" href="#contacto">
+              Solicitar Instalación
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-6 mt-4 mt-lg-0 text-center">
+          <div class="position-relative">
+            <img class="img-fluid rounded-4 shadow-lg" src="img/logo.png" alt="Internet Rural de Alta Velocidad" />
+            <div class="position-absolute top-50 start-50 translate-middle">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== TEST DE VELOCIDAD ===== -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="speed-test-container">
+            <h3 class="mb-4"><i class="bi bi-speedometer2"></i> Test de Velocidad</h3>
+            <p class="mb-4">Verifica la velocidad actual de tu conexión a internet</p>
+
+            <div class="speed-gauge">
+              <div class="gauge-bg"></div>
+              <div class="gauge-fill" id="gaugeFill"></div>
+              <div class="speed-value" id="speedValue">0 Mbps</div>
+            </div>
+
+            <div class="row g-3 mb-4">
+              <div class="col-4">
+                <div class="text-center">
+                  <div class="h4 mb-1" id="downloadSpeed">- -</div>
+                  <small>Descarga</small>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="text-center">
+                  <div class="h4 mb-1" id="uploadSpeed">- -</div>
+                  <small>Subida</small>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="text-center">
+                  <div class="h4 mb-1" id="pingValue">- -</div>
+                  <small>Ping (ms)</small>
+                </div>
+              </div>
+            </div>
+
+            <button class="test-button" id="startTest">
+              <i class="bi bi-play-fill"></i> Iniciar Test
+            </button>
+
+            <div class="mt-3" id="testStatus"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIOS ===== -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="display-6 fw-bold">Lo que Dicen Nuestros Clientes</h2>
+        <p class="lead text-muted">Testimonios reales de familias conectadas</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-3">
+              <img src="img/clientes/cliente1.webp" alt="María González" class="testimonial-avatar me-3 lazy-image">
+              <div>
+                <h5 class="mb-1">María González</h5>
+                <small class="text-muted">Vereda El Progreso</small>
+                <div class="stars mt-1">★★★★★</div>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              "Antes teníamos problemas constantes con el internet. Desde que llegó Conexiones C@mpo, mis hijos pueden
+              estudiar virtual sin interrupciones y yo trabajo desde casa perfectamente."
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-3">
+              <img src="img/clientes/cliente2.jpg" alt="Carlos Mendez" class="testimonial-avatar me-3 lazy-image">
+              <div>
+                <h5 class="mb-1">Carlos Méndez</h5>
+                <small class="text-muted">Finca La Esperanza</small>
+                <div class="stars mt-1">★★★★★</div>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              "El servicio técnico es excelente. Cuando tuvimos un problema por una tormenta, vinieron el mismo día a
+              solucionarlo. La velocidad es increíble para estar en el campo."
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-3">
+              <img src="img/clientes/cliente3.jpg" alt="Ana Torres" class="testimonial-avatar me-3 lazy-image">
+              <div>
+                <h5 class="mb-1">Ana Torres</h5>
+                <small class="text-muted">Sector Los Pinos</small>
+                <div class="stars mt-1">★★★★★</div>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              "Por fin podemos ver Netflix en HD y hacer videollamadas con la familia. El precio es muy justo y la
+              instalación fue rápida y profesional. 100% recomendado."
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-3">
+              <img src="img/clientes/cliente4.jpg" alt="Roberto Silva" class="testimonial-avatar me-3 lazy-image">
+              <div>
+                <h5 class="mb-1">Roberto Silva</h5>
+                <small class="text-muted">Vereda San José</small>
+                <div class="stars mt-1">★★★★☆</div>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              "Tengo un negocio online y necesitaba internet confiable. Con Conexiones C@mpo no he tenido caídas y las
+              ventas han mejorado mucho. El soporte es muy bueno."
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-3">
+              <img src="img/clientes/cliente5.jpg" alt="Patricia López" class="testimonial-avatar me-3 lazy-image">
+              <div>
+                <h5 class="mb-1">Patricia López</h5>
+                <small class="text-muted">Finca El Rosal</small>
+                <div class="stars mt-1">★★★★★</div>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              "La TV tiene muchísimos canales y la calidad es perfecta. Los técnicos muy amables y explicaron todo muy
+              bien. Llevamos 2 años y nunca hemos tenido problemas."
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-3">
+              <img src="img/clientes/cliente6.jfif" alt="Diego Castro" class="testimonial-avatar me-3 lazy-image">
+              <div>
+                <h5 class="mb-1">Diego Castro</h5>
+                <small class="text-muted">Vereda La Palma</small>
+                <div class="stars mt-1">★★★★★</div>
+              </div>
+            </div>
+            <p class="testimonial-text">
+              "Mis padres viven conmigo y ahora pueden hacer videollamadas con sus nietos que viven en la ciudad. El
+              internet es super estable y rápido. Excelente servicio."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-6 fw-bold">Nuestros Servicios</h2>
+      <p class="lead text-muted">Soluciones tecnológicas adaptadas a las necesidades del campo</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Internet Básico -->
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="card service-card h-100 text-center p-4">
+          <div class="service-icon mx-auto">
+            <i class="bi bi-wifi"></i>
+          </div>
+          <h5 class="card-title">Internet Básico</h5>
+          <p class="card-text text-muted">Perfecto para navegación y redes sociales</p>
+          <ul class="list-unstyled mb-4">
+            <li><i class="bi bi-check-circle text-success"></i> 20 Mbps de velocidad</li>
+            <li><i class="bi bi-check-circle text-success"></i> Instalación gratuita</li>
+            <li><i class="bi bi-check-circle text-success"></i> Soporte técnico</li>
+          </ul>
+          <div class="mt-auto">
+            <div class="price-tag mb-3">$45.000/mes</div>
+            <a href="#contacto" class="btn btn-outline-primary">Contratar</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Internet Premium -->
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="card service-card h-100 text-center p-4">
+          <div class="service-icon mx-auto">
+            <i class="bi bi-speedometer2"></i>
+          </div>
+          <h5 class="card-title">Internet Premium</h5>
+          <p class="card-text text-muted">Ideal para trabajo remoto y streaming</p>
+          <ul class="list-unstyled mb-4">
+            <li><i class="bi bi-check-circle text-success"></i> 50 Mbps de velocidad</li>
+            <li><i class="bi bi-check-circle text-success"></i> Router WiFi incluido</li>
+            <li><i class="bi bi-check-circle text-success"></i> Prioridad en soporte</li>
+          </ul>
+          <div class="mt-auto">
+            <div class="price-tag mb-3">$75.000/mes</div>
+            <a href="#contacto" class="btn btn-primary">Más Popular</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TV Digital -->
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="card service-card h-100 text-center p-4">
+          <div class="service-icon mx-auto">
+            <i class="bi bi-tv"></i>
+          </div>
+          <h5 class="card-title">TV Digital</h5>
+          <p class="card-text text-muted">Entretenimiento familiar de calidad</p>
+          <ul class="list-unstyled mb-4">
+            <li><i class="bi bi-check-circle text-success"></i> +200 canales HD</li>
+            <li><i class="bi bi-check-circle text-success"></i> Canales premium</li>
+            <li><i class="bi bi-check-circle text-success"></i> Guía electrónica</li>
+          </ul>
+          <div class="mt-auto">
+            <div class="price-tag mb-3">$35.000/mes</div>
+            <a href="#contacto" class="btn btn-outline-primary">Contratar</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paquete Completo -->
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="card service-card h-100 text-center p-4">
+          <div class="service-icon mx-auto">
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <h5 class="card-title">Paquete Completo</h5>
+          <p class="card-text text-muted">La mejor experiencia de conectividad</p>
+          <ul class="list-unstyled mb-4">
+            <li><i class="bi bi-check-circle text-success"></i> 100 Mbps + TV</li>
+            <li><i class="bi bi-check-circle text-success"></i> Netflix incluido</li>
+            <li><i class="bi bi-check-circle text-success"></i> Soporte prioritario</li>
+          </ul>
+          <div class="mt-auto">
+            <div class="price-tag mb-3">$95.000/mes</div>
+            <a href="#contacto" class="btn btn-primary">¡Ahorra!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- ===== NOTICIAS ===== -->
+  <section id="noticias" class="py-5 bg-light">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between mb-4">
+        <h2 class="h3 fw-bold mb-0">Últimas Noticias</h2>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-primary btn-sm" id="newsPrev" aria-label="Anterior">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <button class="btn btn-primary btn-sm" id="newsNext" aria-label="Siguiente">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="news-reel" id="newsReel" tabindex="0">
+        <!-- Noticia 1 -->
+        <article class="news-card card">
+          <img src="img/noticias/noticia1.jfif" class="card-img-top" alt="Nueva infraestructura" />
+          <div class="card-body">
+            <h5 class="card-title">Nueva Red de Fibra Óptica</h5>
+            <p class="card-text small text-muted">
+              Ampliamos nuestra cobertura con tecnología de punta para ofrecer velocidades superiores.
+            </p>
+            <a href="#" class="stretched-link">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Noticia 2 -->
+        <article class="news-card card">
+          <img src="img/noticias/noticia2.webp" class="card-img-top" alt="Soporte técnico" />
+          <div class="card-body">
+            <h5 class="card-title">Nuevo Centro de Atención</h5>
+            <p class="card-text small text-muted">
+              Inauguramos oficina local para brindar soporte personalizado a nuestros usuarios.
+            </p>
+            <a href="#" class="stretched-link">Ver ubicación</a>
+          </div>
+        </article>
+
+        <!-- Noticia 3 -->
+        <article class="news-card card">
+          <img src="img/noticias/noticia3.jpg" class="card-img-top" alt="Promociones" />
+          <div class="card-body">
+            <h5 class="card-title">Promoción Fin de Año</h5>
+            <p class="card-text small text-muted">
+              Descuentos especiales en instalación y primeros meses para nuevos clientes.
+            </p>
+            <a href="#contacto" class="stretched-link">Aprovechar oferta</a>
+          </div>
+        </article>
+
+        <!-- Noticia 4 -->
+        <article class="news-card card">
+          <img src="img/noticias/noticia4.jpg" class="card-img-top" alt="Streaming" />
+          <div class="card-body">
+            <h5 class="card-title">Alianza con Plataformas</h5>
+            <p class="card-text small text-muted">
+              Incluimos Netflix y Prime Video en nuestros paquetes premium sin costo adicional.
+            </p>
+            <a href="#servicios" class="stretched-link">Ver planes</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAPA DE COBERTURA INTERACTIVO ===== -->
+  <section id="cobertura" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="h3 fw-bold mb-4 text-center">Mapa de Cobertura Interactivo</h2>
+      <p class="text-center text-muted mb-5">Haz clic en las zonas para ver detalles de cobertura</p>
+
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="coverage-map-container position-relative">
+            <img src="img/zona-cobertura.jpg" alt="Mapa de Cobertura" class="img-fluid rounded-4 lazy-image">
+
+            <!-- Zonas de Cobertura -->
+            <div class="coverage-zone" style="width: 60px; height: 60px; top: 20%; left: 25%;" data-zone="norte">
+              <div class="zone-tooltip">Zona Norte - Fibra Óptica 100 Mbps</div>
+            </div>
+            <div class="coverage-zone" style="width: 80px; height: 80px; top: 40%; left: 45%;" data-zone="centro">
+              <div class="zone-tooltip">Centro - Cobertura Completa 50 Mbps</div>
+            </div>
+            <div class="coverage-zone" style="width: 50px; height: 50px; top: 65%; left: 20%;" data-zone="sur">
+              <div class="zone-tooltip">Zona Sur - Expansión Q1 2025</div>
+            </div>
+            <div class="coverage-zone" style="width: 70px; height: 70px; top: 25%; left: 70%;" data-zone="este">
+              <div class="zone-tooltip">Zona Este - Alta Velocidad 75 Mbps</div>
+            </div>
+            <div class="coverage-zone" style="width: 55px; height: 55px; top: 55%; left: 60%;" data-zone="oeste">
+              <div class="zone-tooltip">Zona Oeste - Disponible 30 Mbps</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-geo-alt text-primary"></i> Consulta tu Zona</h5>
+              <form class="mb-4" id="checkCoverageForm">
+                <div class="mb-3">
+                  <label for="address" class="form-label">Dirección</label>
+                  <input type="text" class="form-control" id="address" placeholder="Ej: Vereda El Progreso, Km 5">
+                </div>
+                <div class="mb-3">
+                  <label for="municipality" class="form-label">Municipio</label>
+                  <input type="text" class="form-control" id="municipality" placeholder="Ej: Cajicá, Cundinamarca">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">
+                  <i class="bi bi-search"></i> Verificar Cobertura
+                </button>
+              </form>
+
+              <div id="coverageResult" class="d-none">
+                <div class="alert alert-success">
+                  <i class="bi bi-check-circle"></i>
+                  <strong>¡Excelente!</strong> Tu zona tiene cobertura disponible.
+                  <hr>
+                  <small>Velocidad máxima: <strong>50 Mbps</strong></small><br>
+                  <small>Tecnología: <strong>Fibra Óptica</strong></small><br>
+                  <small>Instalación: <strong>2-3 días hábiles</strong></small>
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <h6 class="mb-3">Leyenda</h6>
+                <div class="d-flex align-items-center mb-2">
+                  <div class="me-2"
+                    style="width: 20px; height: 20px; background: rgba(0,255,136,0.3); border: 2px solid #00ff88; border-radius: 50%;">
+                  </div>
+                  <small>Cobertura Disponible</small>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                  <div class="me-2"
+                    style="width: 20px; height: 20px; background: rgba(255,193,7,0.3); border: 2px solid #ffc107; border-radius: 50%;">
+                  </div>
+                  <small>En Expansión</small>
+                </div>
+                <div class="d-flex align-items-center">
+                  <div class="me-2"
+                    style="width: 20px; height: 20px; background: rgba(108,117,125,0.3); border: 2px solid #6c757d; border-radius: 50%;">
+                  </div>
+                  <small>Próximamente</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EQUIPO ===== -->
+  <section id="equipo" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="h3 fw-bold mb-4 text-center">Nuestro Equipo Técnico</h2>
+      <div class="row g-4">
+        <!-- Miembro 1 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="team-card text-center p-4 h-100">
+            <img class="team-photo mb-3" src="/img/equipo/equipo1.jfif" alt="Carlos - Ingeniero de Redes" />
+            <h5 class="mb-1">Emanuel Luna</h5>
+            <p class="text-primary small mb-2">Desarrollador de Software</p>
+            <p class="small text-muted">Desarrollador de Software encargado del diseño y programación de soluciones
+              completas en frontend, backend y automatización.</p>
+          </div>
+        </div>
+
+        <!-- Miembro 2 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="team-card text-center p-4 h-100">
+            <img class="team-photo mb-3" src="img/equipo/equipo2.jfif"
+              alt="Ana - Soporte Técnico" />
+            <h5 class="mb-1">Harold José</h5>
+            <p class="text-primary small mb-2">Especialista en Redes</p>
+            <p class="small text-muted">Especialista en Redes encargado de la administración, configuración y
+              mantenimiento de la infraestructura de comunicación.</p>
+          </div>
+        </div>
+
+        <!-- Miembro 3 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="team-card text-center p-4 h-100">
+            <img class="team-photo mb-3" src="img/equipo/equipo3.jpg" alt="Miguel - Instalador" />
+            <h5 class="mb-1">Miguel Rodríguez</h5>
+            <p class="text-primary small mb-2">Técnico Instalador</p>
+            <p class="small text-muted">Experto en instalaciones rurales y configuración de equipos especializados.</p>
+          </div>
+        </div>
+
+        <!-- Miembro 4 -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="team-card text-center p-4 h-100">
+            <img class="team-photo mb-3" src="img/equipo/equipo4.webp" alt="Laura - Coordinadora" />
+            <h5 class="mb-1">Laura Torres</h5>
+            <p class="text-primary small mb-2">Coordinadora de Servicios</p>
+            <p class="small text-muted">Gestiona operaciones y garantiza la calidad del servicio en toda la región.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACTO ===== -->
+  <section id="contacto" class="py-5">
+    <div class="container">
+      <h2 class="h3 fw-bold mb-4 text-center">Contrata Nuestros Servicios</h2>
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <form class="row g-3" novalidate>
+            <div class="col-md-6">
+              <label for="nombre" class="form-label">Nombre Completo</label>
+              <input type="text" class="form-control" id="nombre" required />
+              <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="telefono" class="form-label">Teléfono</label>
+              <input type="tel" class="form-control" id="telefono" required />
+              <div class="invalid-feedback">Ingresa un teléfono válido.</div>
+            </div>
+            <div class="col-12">
+              <label for="email" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="email" required />
+              <div class="invalid-feedback">Correo inválido.</div>
+            </div>
+            <div class="col-12">
+              <label for="direccion" class="form-label">Dirección Completa</label>
+              <input type="text" class="form-control" id="direccion" required />
+              <div class="invalid-feedback">Necesitamos tu dirección para la instalación.</div>
+            </div>
+            <div class="col-12">
+              <label for="servicio" class="form-label">Servicio de Interés</label>
+              <select class="form-select" id="servicio" required>
+                <option value="">Selecciona un servicio</option>
+                <option value="basico">Internet Básico - $45.000</option>
+                <option value="premium">Internet Premium - $75.000</option>
+                <option value="tv">TV Digital - $35.000</option>
+                <option value="completo">Paquete Completo - $95.000</option>
+              </select>
+              <div class="invalid-feedback">Selecciona el servicio que te interesa.</div>
+            </div>
+            <div class="col-12">
+              <label for="mensaje" class="form-label">Mensaje Adicional</label>
+              <textarea class="form-control" id="mensaje" rows="4"
+                placeholder="Cuéntanos sobre tu ubicación, necesidades específicas o cualquier pregunta"></textarea>
+            </div>
+            <div class="col-12 d-flex align-items-center gap-3">
+              <button type="submit" class="btn btn-primary btn-lg">
+                <i class="bi bi-send"></i> Solicitar Instalación
+              </button>
+              <small class="text-success d-none" id="formOk">
+                ¡Solicitud enviada! Te contactaremos en las próximas 24 horas.
+              </small>
+            </div>
+          </form>
+
+        </div>
+
+        <div class="col-lg-6">
+          <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-sm mb-4">
+            <iframe src="https://maps.google.com/maps?q=Colombia+rural&t=&z=10&ie=UTF8&iwloc=&output=embed"
+              title="Zona de Cobertura" loading="lazy"></iframe>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="text-center p-3 bg-primary text-white rounded-4">
+                <i class="bi bi-people fs-1 mb-2"></i>
+                <div class="fw-bold">500+</div>
+                <small>Clientes Satisfechos</small>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="text-center p-3 bg-success text-white rounded-4">
+                <i class="bi bi-speedometer2 fs-1 mb-2"></i>
+                <div class="fw-bold">99%</div>
+                <small>Uptime Garantizado</small>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="text-center p-3 bg-info text-white rounded-4">
+                <i class="bi bi-geo-alt fs-1 mb-2"></i>
+                <div class="fw-bold">15+</div>
+                <small>Veredas Cubiertas</small>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="text-center p-3 bg-warning text-dark rounded-4">
+                <i class="bi bi-headset fs-1 mb-2"></i>
+                <div class="fw-bold">24/7</div>
+                <small>Soporte Técnico</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="py-5 footer-gradient text-white">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <h5 class="mb-3">
+            <i class="bi bi-router"></i> Conexiones C@mpo
+          </h5>
+          <p class="text-light">
+            Llevamos internet de alta velocidad y entretenimiento digital a las zonas rurales,
+            conectando el campo con el mundo.
+          </p>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h6 class="mb-3">Servicios</h6>
+          <ul class="list-unstyled">
+            <li><a href="#servicios" class="text-light text-decoration-none">Internet Básico</a></li>
+            <li><a href="#servicios" class="text-light text-decoration-none">Internet Premium</a></li>
+            <li><a href="#servicios" class="text-light text-decoration-none">TV Digital</a></li>
+            <li><a href="#servicios" class="text-light text-decoration-none">Paquetes</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h6 class="mb-3">Empresa</h6>
+          <ul class="list-unstyled">
+            <li><a href="#equipo" class="text-light text-decoration-none">Equipo</a></li>
+            <li><a href="#cobertura" class="text-light text-decoration-none">Cobertura</a></li>
+            <li><a href="#noticias" class="text-light text-decoration-none">Noticias</a></li>
+            <li><a href="#contacto" class="text-light text-decoration-none">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4">
+          <h6 class="mb-3">Contacto Rápido</h6>
+          <div class="d-flex flex-column gap-2">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-telephone me-2"></i>
+              <span>+57 313 618 6752</span>
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="bi bi-envelope me-2"></i>
+              <span>em-dev@gmail.com</span>
+            </div>
+            <div class="d-flex align-items-start">
+              <i class="bi bi-geo-alt me-2 mt-1"></i>
+              <span>Sincelejo - Sucre</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-4 border-light">
+
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <p class="mb-2 mb-md-0 small">© 2025 EM_DEV. Todos los derechos reservados.</p>
+        <div class="d-flex gap-4 small">
+          <a class="text-light text-decoration-none"
+            href="https://wa.me/573136186752?text= Página creada por EM_DEV.">Términos de Servicio</a>
+          <a class="text-light text-decoration-none" href="https://wa.me/573136186752?text= Página creada por EM_DEV."
+            target="_blank">Política de Privacidad</a>
+          <a class="text-light text-decoration-none" href="https://wa.me/573136186752?text= Página creada por EM_DEV."
+            target="_blank">Soporte</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="watermark">
+    <pre>
+      
+      ███████╗███╗   ███╗        ██████╗ ███████╗██╗   ██╗
+      ██╔════╝████╗ ████║        ██╔══██╗██╔════╝██║   ██║
+      █████╗  ██╔████╔██║        ██║  ██║█████╗  ██║   ██║
+      ██╔══╝  ██║╚██╔╝██║        ██║  ██║██╔══╝  ╚██╗ ██╔╝
+      ███████╗██║ ╚═╝ ██║███████╗██████╔╝███████╗ ╚████╔╝ 
+      ╚══════╝╚═╝     ╚═╝╚══════╝╚═════╝ ╚══════╝  ╚═══╝  
+                                                                                                                                      
+    </pre>
+  </div>
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/+573136186752?text=Hola,%20quiero%20información%20sobre%20los%20servicios%20de%20de%20creacion%20de%20paginas."
+    class="whatsapp-float" target="_blank" rel="noopener" title="Contactar por WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
