@@ -121,7 +121,3 @@ CONEXIONES-CAMPO/
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT - ver el archivo `LICENSE` para detalles.
-
----
-
-⚡ Conectando el campo con el mundo digital desde 2025
