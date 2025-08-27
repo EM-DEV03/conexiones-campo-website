@@ -97,13 +97,6 @@ CONEXIONES-CAMPO/
 - Cards responsivas con imágenes
 - Enlaces a secciones internas
 
-## 🔗 CDNs Utilizados
-
-- Bootstrap CSS: `cdn.jsdelivr.net/npm/bootstrap@5.3.3`
-- Bootstrap Icons: `cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3`
-- Bootstrap JS: `cdn.jsdelivr.net/npm/bootstrap@5.3.3`
-- Imágenes de ejemplo: `picsum.photos` (cambiar por imágenes reales)
-
 ## 📈 Posibles Mejoras
 
 ### Backend Integration
